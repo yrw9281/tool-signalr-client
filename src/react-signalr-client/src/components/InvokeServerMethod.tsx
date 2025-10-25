@@ -68,7 +68,7 @@ const InvokeServerMethod = ({
           type="text"
           value={methodName}
           onChange={(event) => onMethodNameChange(event.target.value)}
-          placeholder="SendMessage"
+          placeholder="ex: SendMessage"
           className={inputFieldClass}
         />
       </label>
@@ -117,7 +117,7 @@ const InvokeServerMethod = ({
                 onChange={(event) =>
                   onArgValueChange(arg.id, event.target.value)
                 }
-                placeholder='{"message": "Hello"}'
+                placeholder='ex: {"message": "Hello"}'
                 rows={3}
                 className={textAreaFieldClass}
               />

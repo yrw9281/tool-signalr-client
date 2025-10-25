@@ -3,6 +3,7 @@ import {
   inputFieldClass,
   primaryButtonClass,
   secondaryButtonClass,
+  selectFieldClass,
   textAreaFieldClass,
 } from "../../styles";
 import type { ArgType, ConnectionPhase, PayloadArg } from "../../types";
@@ -68,7 +69,7 @@ const InvokeServerMethod = ({
           type="text"
           value={methodName}
           onChange={(event) => onMethodNameChange(event.target.value)}
-          placeholder="SendMessage"
+          placeholder="ex: SendMessage"
           className={inputFieldClass}
         />
       </label>
@@ -99,17 +100,37 @@ const InvokeServerMethod = ({
             className="flex flex-col gap-2 md:grid md:items-center md:gap-2 md:[grid-template-columns:56px_minmax(120px,_160px)_1fr_auto]"
           >
             <div className="font-semibold text-slate-600">#{index + 1}</div>
-            <select
-              value={arg.type}
-              onChange={(event) =>
-                onArgTypeChange(arg.id, event.target.value as ArgType)
-              }
-              className={inputFieldClass}
-            >
-              <option value="text">Text</option>
-              <option value="number">Number</option>
-              <option value="json">JSON</option>
-            </select>
+            <div className="relative">
+              <select
+                value={arg.type}
+                onChange={(event) =>
+                  onArgTypeChange(arg.id, event.target.value as ArgType)
+                }
+                className={selectFieldClass}
+              >
+                <option value="text">Text</option>
+                <option value="number">Number</option>
+                <option value="json">JSON</option>
+              </select>
+              <span
+                className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-500"
+                aria-hidden="true"
+              >
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </div>
 
             {arg.type === "json" ? (
               <textarea
@@ -117,7 +138,7 @@ const InvokeServerMethod = ({
                 onChange={(event) =>
                   onArgValueChange(arg.id, event.target.value)
                 }
-                placeholder='{"message": "Hello"}'
+                placeholder='ex: {"message": "Hello"}'
                 rows={3}
                 className={textAreaFieldClass}
               />

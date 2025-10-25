@@ -5,6 +5,7 @@ import {
   inputFieldClass,
   primaryButtonClass,
   secondaryButtonClass,
+  selectFieldClass,
 } from "../../styles";
 import type { ConnectionPhase, TransportKey } from "../../types";
 
@@ -117,7 +118,7 @@ const ConnectionSettings = ({
           <input
             id={hubInputId}
             type="text"
-            placeholder="https://example.com/hub"
+            placeholder="ex: https://example.com/hub"
             value={hubUrl}
             onChange={(event) => onHubUrlChange(event.target.value)}
             spellCheck={false}
@@ -149,7 +150,7 @@ const ConnectionSettings = ({
             type="text"
             value={token}
             onChange={(event) => onTokenChange(event.target.value)}
-            placeholder="ey..."
+            placeholder="ex: ey..."
             disabled={!useToken}
             className={`${inputFieldClass} disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-500`}
           />
@@ -163,20 +164,40 @@ const ConnectionSettings = ({
             Transport Type
             <InfoHint message="Select the transport channel for SignalR. Defaults to WebSockets; switch to SSE or Long Polling if needed." />
           </label>
-          <select
-            id={transportSelectId}
-            value={transport}
-            onChange={(event) =>
-              onTransportChange(event.target.value as TransportKey)
-            }
-            className={inputFieldClass}
-          >
-            {transportOptions.map(([key, label]) => (
-              <option key={key} value={key}>
-                {label}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <select
+              id={transportSelectId}
+              value={transport}
+              onChange={(event) =>
+                onTransportChange(event.target.value as TransportKey)
+              }
+              className={selectFieldClass}
+            >
+              {transportOptions.map(([key, label]) => (
+                <option key={key} value={key}>
+                  {label}
+                </option>
+              ))}
+            </select>
+            <span
+              className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-slate-500"
+              aria-hidden="true"
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </span>
+          </div>
         </div>
 
         <label className="flex w-full items-start gap-3 text-sm font-semibold text-slate-600">

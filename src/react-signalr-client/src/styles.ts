@@ -6,9 +6,11 @@ export const primaryButtonClass = `${buttonBase} bg-indigo-500 text-white shadow
 export const secondaryButtonClass = `${buttonBase} bg-slate-900 text-white shadow-lg shadow-slate-900/15 hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-slate-900`;
 
 export const inputFieldClass =
-  "w-full rounded-xl border border-indigo-100 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-200/60";
+  "w-full rounded-xl border border-indigo-100 bg-slate-50 px-3 py-2 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-200/60";
 
 export const textAreaFieldClass = `${inputFieldClass} min-h-24 resize-y`;
+
+export const selectFieldClass = `${inputFieldClass} appearance-none [-webkit-appearance:none] pr-10`;
 
 export const badgeBaseClass =
   "inline-flex items-center justify-center rounded-full px-3 py-1 text-sm font-semibold";
