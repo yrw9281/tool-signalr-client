@@ -32,6 +32,7 @@ export interface ConnectionHistory {
 }
 
 export interface MethodHistoryItem {
+  id: string;
   methodName: string;
   args: PayloadArg[];
   timestamp: string;

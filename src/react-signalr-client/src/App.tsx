@@ -88,9 +88,12 @@ function App() {
   }, []);
 
   const handleConnect = useCallback(async () => {
+    const trimmedHubUrl = hubUrl.trim();
+    setHubUrl(trimmedHubUrl);
+
     const effectiveSkipNegotiation = skipNegotiation && canSkipNegotiation;
     const success = await connect({
-      hubUrl,
+      hubUrl: trimmedHubUrl,
       transport,
       useToken,
       token,
@@ -101,7 +104,7 @@ function App() {
     if (success) {
       // Save connection settings to history
       addToHistory({
-        url: hubUrl.trim(),
+        url: trimmedHubUrl,
         useToken,
         token: useToken ? token.trim() : "",
         transport,

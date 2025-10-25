@@ -8,7 +8,7 @@ interface MethodHistoryModalProps {
   currentHubUrl: string;
   onClose: () => void;
   onSelect: (item: MethodHistoryItem) => void;
-  onDelete: (url: string, timestamp: string) => void;
+  onDelete: (url: string, methodId: string) => void;
   onDeleteAll: (url: string) => void;
 }
 
@@ -144,7 +144,7 @@ const MethodHistoryModal = ({
                   <div className="space-y-3">
                     {currentUrlMethods.map((method) => (
                       <div
-                        key={method.timestamp}
+                        key={method.id}
                         className="group rounded-lg border border-slate-200 bg-slate-50 p-3 transition-all hover:border-indigo-300 hover:bg-white hover:shadow-md"
                       >
                         <div className="flex items-start justify-between gap-3">
@@ -197,7 +197,7 @@ const MethodHistoryModal = ({
                           <button
                             type="button"
                             onClick={() =>
-                              onDelete(currentHubUrl, method.timestamp)
+                              onDelete(currentHubUrl, method.id)
                             }
                             className="rounded-lg border border-rose-300 bg-white px-3 py-2 text-sm font-semibold text-rose-600 transition-colors hover:bg-rose-50"
                           >

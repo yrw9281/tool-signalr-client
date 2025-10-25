@@ -6,9 +6,7 @@ import { makeId } from "../utils";
  * Custom hook for managing method arguments
  */
 export const useMethodArgs = () => {
-  const [args, setArgs] = useState<PayloadArg[]>([
-    { id: makeId(), type: "text", value: "" },
-  ]);
+  const [args, setArgs] = useState<PayloadArg[]>([]);
 
   const addArg = useCallback(() => {
     setArgs((previous) => [
@@ -43,7 +41,7 @@ export const useMethodArgs = () => {
   );
 
   const resetArgs = useCallback(() => {
-    setArgs([{ id: makeId(), type: "text", value: "" }]);
+    setArgs([]);
   }, []);
 
   const setArgsFromHistory = useCallback((historicalArgs: PayloadArg[]) => {

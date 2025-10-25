@@ -136,12 +136,7 @@ const InvokeServerMethod = ({
               type="button"
               className={`${secondaryButtonClass} min-w-20 justify-self-start md:justify-self-start`}
               onClick={() => onRemoveArg(arg.id)}
-              disabled={args.length === 1}
-              title={
-                args.length === 1
-                  ? "Keep at least one parameter."
-                  : "Remove parameter"
-              }
+              title="Remove parameter"
             >
               Delete
             </button>
