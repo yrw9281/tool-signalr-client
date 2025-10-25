@@ -11,6 +11,7 @@ const logAccentByKind: Record<LogEntry["kind"], string> = {
   request: "text-violet-600",
   response: "text-emerald-600",
   error: "text-rose-600",
+  incoming: "text-amber-600",
 };
 
 const RequestResponsePool = ({ logs, onClear }: RequestResponsePoolProps) => (
