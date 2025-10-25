@@ -17,6 +17,7 @@ import {
 } from "./hooks";
 import { buildArgs } from "./utils";
 import { invokeHubMethod } from "./services";
+import githubIcon from "./assets/github.svg";
 import type {
   TransportKey,
   ConnectionHistory,
@@ -246,8 +247,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-200 text-slate-900">
-      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 pb-20 pt-10">
-        <h1 className="text-3xl font-bold">SignalR Web Client</h1>
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 pb-32 pt-10">
+  <h1 className="text-3xl font-bold">SignalR Testing Tool</h1>
 
         <ConnectionSettings
           hubUrl={hubUrl}
@@ -306,6 +307,19 @@ function App() {
           onDeleteAll={deleteAllMethodHistory}
         />
       </div>
+      <footer className="w-full border-t border-slate-300 bg-slate-100 py-6">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-end px-6 text-sm">
+          <a
+            href="https://github.com/yrw9281/tool-signalr-client"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-slate-700 transition hover:text-indigo-600"
+          >
+            <img src={githubIcon} alt="GitHub" className="h-5 w-5" />
+            <span className="font-semibold">GitHub</span>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
