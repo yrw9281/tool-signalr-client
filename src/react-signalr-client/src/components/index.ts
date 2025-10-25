@@ -1,5 +1,5 @@
 export * from "./connection";
 export * from "./method";
-export * from "./logs";
+export * from "./record";
 export * from "./modals";
 export * from "./shared";

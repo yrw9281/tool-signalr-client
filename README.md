@@ -2,6 +2,8 @@
 
 Single-page web client for testing Azure SignalR and ASP.NET Core SignalR hubs. The app lets you connect to a hub, invoke methods with custom payloads, and inspect incoming messages and request/response logs.
 
+Try the [Live Demo](https://signalr.yrw.tw).
+
 ## Tech stack
 
 - React 19 + TypeScript

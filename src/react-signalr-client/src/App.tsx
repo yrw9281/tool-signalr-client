@@ -2,7 +2,7 @@ import { type FormEvent, useCallback, useState } from "react";
 import {
   ConnectionSettings,
   InvokeServerMethod,
-  RequestResponsePool,
+  ActivityLogPool,
   ConnectionHistoryModal,
   MethodHistoryModal,
 } from "./components";
@@ -297,7 +297,7 @@ function App() {
           onOpenHistory={() => setIsMethodHistoryModalOpen(true)}
         />
 
-        <RequestResponsePool logs={logs} onClear={clearLogs} />
+  <ActivityLogPool logs={logs} onClear={clearLogs} />
 
         <ConnectionHistoryModal
           isOpen={isHistoryModalOpen}

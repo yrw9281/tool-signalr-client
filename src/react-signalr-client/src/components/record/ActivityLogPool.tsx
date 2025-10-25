@@ -1,7 +1,7 @@
 import { secondaryButtonClass } from "../../styles";
 import type { LogEntry } from "../../types";
 
-interface RequestResponsePoolProps {
+interface ActivityLogPoolProps {
   logs: LogEntry[];
   onClear: () => void;
 }
@@ -14,7 +14,7 @@ const logAccentByKind: Record<LogEntry["kind"], string> = {
   incoming: "text-amber-600",
 };
 
-const RequestResponsePool = ({ logs, onClear }: RequestResponsePoolProps) => (
+const ActivityLogPool = ({ logs, onClear }: ActivityLogPoolProps) => (
   <section className="flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
     <header className="flex flex-wrap items-center justify-between gap-3">
       <h2 className="text-xl font-semibold text-slate-900">Activity Log</h2>
@@ -72,4 +72,4 @@ const RequestResponsePool = ({ logs, onClear }: RequestResponsePoolProps) => (
   </section>
 );
 
-export default RequestResponsePool;
+export default ActivityLogPool;
