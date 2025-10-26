@@ -2,7 +2,7 @@
 
 Single-page web client for testing Azure SignalR and ASP.NET Core SignalR hubs. The app lets you connect to a hub, invoke methods with custom payloads, and inspect incoming messages and request/response logs.
 
-Try the [Live Demo](https://signalr.yrw.tw).
+Try the [Live Tool](https://signalr.yrw.tw).
 
 ## Tech stack
 
@@ -75,6 +75,23 @@ The Dockerfile uses a multi-stage build: the app is built inside a Node.js 20 im
 - Skip negotiation only when both browser and server support WebSockets.
 - Build payloads with the provided UI; the app converts text, number, and JSON values before invoking hub methods.
 - Use history modals to restore previous connection settings and method payloads.
+
+## Connecting to Azure SignalR
+
+- Call your hub server’s `negotiate` endpoint (for example `https://<your-app>/api/negotiate`) to fetch the negotiated connection details. A typical response looks like this:
+
+   ```json
+   {
+      "negotiateVersion": 0,
+      "url": "https://yrw-test.service.signalr.net/client/?hub=messagehub...",
+      "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjExMjc5Njk2NDgif...",
+      "availableTransports": []
+   }
+   ```
+
+- In the tool’s **Connection Settings**, paste the `url` into `Hub Address`, enable `Use token (Authorization header)`, and paste the `accessToken` into `Bearer Token`.
+- Repeat the negotiate → paste flow whenever you need a new connection; Azure SignalR tokens expire and must be refreshed.
+- Adjust `Transport`, `With Credentials`, and `Skip Negotiation` as needed—defaults usually work out of the box.
 
 ## Repository scripts reference
 
